@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Login Admin
+Route::get('/login', 'App\Http\Controllers\LoginController@show')->name('login')->middleware('guest');
+Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
+
+
+// Protected Routes - allows only logged in users
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+});
