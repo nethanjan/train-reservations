@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h2>Login Page</h2>
+        <h2>Add Train</h2>
         <form action="{{ route('trains.store') }}" method="POST">
             @csrf
             <p><input type="text" name="name" placeholder="Train Name" value="{{ old('name') }}"></p>

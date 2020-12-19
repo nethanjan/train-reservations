@@ -23,7 +23,9 @@
                     <td>{{$train->name}}</td>
                     <td>{{$train->departure}}</td>
                     <td>{{$train->seats}}</td>
-                    <td><a href="{{ route('trains.bookings.create', $train->id)}}" class="btn btn-primary">Book</a></td>
+                    @if ($train->avaialble && $train->bookingAvaialble)
+                      <td><a href="{{ route('trains.bookings.create', $train->id)}}" class="btn btn-primary">Book</a></td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

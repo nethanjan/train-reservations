@@ -30,5 +30,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('trains.bookings', BookingController::class)->only([
-    'create', 'show'
+    'create', 'show', 'store'
 ]);;

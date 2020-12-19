@@ -11,7 +11,12 @@
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav align-items-center">
                                 @auth
-                                    <a class="nav-item nav-link border border-white @if(Request::path() === '/') active @endif" href="{{ url('/') }}">Dashboard</a>
+                                @if(Route::current()->getName() === null)
+                                    <a class="nav-item nav-link border border-white @if(Request::path() === '/') active @endif" href="{{ url('/dashboard') }}">Dashboard</a>
+                                @else
+                                    <a class="nav-item nav-link border border-white @if(Request::path() === '/') active @endif" href="{{ url('/') }}">Home</a>
+                                @endif
+                                    
                                     <a class="nav-item">
                                         <form action="/logout" method="POST">
                                             @csrf

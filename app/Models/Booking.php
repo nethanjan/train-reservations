@@ -14,15 +14,4 @@ class Booking extends Model
         'nic',
         'seatCount'
     ];
-
-    public static function boot()
-    {
-        parent::boot();
-
-
-        self::creating(function($booking){
-            // $booked seats = $booking->seatCount
-            // reduce the number fo seats from the train
-        });
-    }
 }

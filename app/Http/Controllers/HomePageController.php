@@ -12,10 +12,10 @@ class HomePageController extends Controller
     {
         $today = date("Y-m-d H:i:s");
         $trains = DB::table('trains as t')
-             ->where('t.bookingAvaialble',1)
-             ->whereDate('t.departure','>', $today)
-             ->select('t.*',)->get();
-
+             ->select('t.*',)
+             ->selectRaw('IF(t.departure > "'.$today.'", 1, 0) as avaialble')
+            //  ->where('t.bookingAvaialble',1)
+             ->get();
         return view('welcome', compact('trains'));
     }
 
