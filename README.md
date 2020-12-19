@@ -19,5 +19,12 @@ DB_PASSWORD=
 php artisan migrate
 php artisan db:seed (Admin user seed)
 
+npm install
+npm run dev
+
+php artisan serve
+
+### Login
+
 User : admin@solomoIt.com
 Password : password
