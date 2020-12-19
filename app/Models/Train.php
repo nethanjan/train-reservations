@@ -24,7 +24,7 @@ class Train extends Model
     {
         parent::boot();
 
-
+        // on create validate train avaialability
         self::creating(function($train){
             $today = date("Y-m-d H:i:s");
             $departure = date_format(date_create($train->departure), 'Y-m-d H:i:s');
@@ -32,6 +32,7 @@ class Train extends Model
             $train->bookingAvaialble = $train->seats < 1 ? false : true;
         });
 
+        // on update validate train avaialability
         self::updating(function($train){
             $today = date("Y-m-d H:i:s");
             $departure = date_format(date_create($train->departure), 'Y-m-d H:i:s');
