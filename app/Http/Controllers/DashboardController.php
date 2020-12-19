@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Train;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('dashboard', compact('users'));
+        $trains = Train::all();
+        return view('dashboard', compact('trains'));
     }
 }

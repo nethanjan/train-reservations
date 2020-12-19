@@ -3,10 +3,11 @@
 @section('content')
     <div>
         <h2>Login Page</h2>
-        <form action="/login" method="POST">
+        <form action="{{ route('trains.store') }}" method="POST">
             @csrf
-            <p><input type="email" name="email" placeholder="Enter Email" value="{{ old('email') }}"></p>
-            <p><input type="password" name="password" placeholder="Enter Password"></p>
+            <p><input type="text" name="name" placeholder="Train Name" value="{{ old('name') }}"></p>
+            <p><input type="datetime-local" name="departure" placeholder="Select Departure Time" value="{{ old('departure') }}"></p>
+            <p><input type="nmber" name="seats" placeholder="Number of Seats" value="{{ old('seats') }}"></p>
             <p><input type="submit" value="Submit"></p>
         </form>
     </div>

@@ -5,9 +5,6 @@
                 @if (Route::has('login'))
                 <div class="top-right links">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-                        @auth
-                            <a class="navbar-brand border border-white" href="/">{{ Auth::user()->name }}</a>
-                        @endauth
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -22,6 +19,7 @@
                                         </form>
                                     </a>
                                 @else
+                                    <a class="nav-item nav-link @if(Request::path() === 'login') active @endif" href="{{ url('/') }}">Home</a>
                                     <a class="nav-item nav-link @if(Request::path() === 'login') active @endif" href="{{ url('/login') }}">Login</a>
                                 @endauth
                             </div>
